@@ -25,7 +25,7 @@ public class AdminController {
     @Autowired
     CharacterMapper characterMapper;
     @Autowired
-    CheckMapper checkMapper;
+    PosMapper posMapper;
     @Autowired
     ColorMapper colorMapper;
     @Autowired
@@ -128,9 +128,9 @@ public class AdminController {
         return commonResult.fail();
     }
     @PostMapping("/poscheck")
-    public CommonResult poscheck(@RequestBody Check check){
+    public CommonResult poscheck(@RequestBody Pos check){
         CommonResult commonResult=new CommonResult();
-        if(checkMapper.insert(check)==1){
+        if(posMapper.insert(check)==1){
             return commonResult.success();
         }
         return commonResult.fail();
